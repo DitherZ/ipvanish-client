@@ -11,8 +11,8 @@
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![PyQt6](https://img.shields.io/badge/PyQt6-6.6%2B-41CD52?style=flat-square&logo=qt&logoColor=white)](https://pypi.org/project/PyQt6/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Linux%20(Debian%2FUbuntu)-orange?style=flat-square&logo=linux&logoColor=white)](https://github.com/DitherZ/IPVanish-Client-v2)
-[![Status](https://img.shields.io/badge/Status-Beta-yellow?style=flat-square)](https://github.com/DitherZ/IPVanish-Client-v2)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20(Debian%2FUbuntu)-orange?style=flat-square&logo=linux&logoColor=white)](https://github.com/DitherZ/ipvanish-client)
+[![Status](https://img.shields.io/badge/Status-Beta-yellow?style=flat-square)](https://github.com/DitherZ/ipvanish-client)
 
 > Not affiliated with, endorsed by, or supported by IPVanish or its parent company.  
 > All VPN infrastructure and service rights belong to IPVanish.
@@ -55,13 +55,13 @@
 One-liner for Debian / Ubuntu / Mint / Parrot OS and derivatives:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/DitherZ/IPVanish-Client-v2/main/linux_install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/DitherZ/ipvanish-client/main/linux_install.sh)
 ```
 
 Or with `wget`:
 
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/DitherZ/IPVanish-Client-v2/main/linux_install.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/DitherZ/ipvanish-client/main/linux_install.sh)
 ```
 
 The installer will:
@@ -79,8 +79,8 @@ The installer will:
 ### 1 — Clone
 
 ```bash
-git clone https://github.com/DitherZ/IPVanish-Client-v2.git
-cd IPVanish-Client-v2
+git clone https://github.com/DitherZ/ipvanish-client.git
+cd ipvanish-client
 ```
 
 ### 2 — System dependencies
@@ -134,7 +134,7 @@ pip install -e .
 ## Project Structure
 
 ```
-IPVanish-Client-v2/
+ipvanish-client/
 ├── core/
 │   ├── backends/
 │   │   ├── base.py              # VPNBackend ABC

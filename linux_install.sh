@@ -18,7 +18,7 @@ print_warn() { printf "  ${YLW}WARN${RC}  %s\n" "$*"; }
 print_fail() { printf "  ${RED}FAIL${RC}  %s\n" "$*"; }
 
 # ── Constants ────────────────────────────────────────────────────────────────
-REPO_URL="https://github.com/DitherZ/IPVanish-Client-v2"
+REPO_URL="https://github.com/DitherZ/ipvanish-client"
 INSTALL_DIR="${HOME}/.local/share/ipvanish-client"
 BIN_LINK="/usr/local/bin/ipvanish"
 DESKTOP_DIR="${HOME}/.local/share/applications"

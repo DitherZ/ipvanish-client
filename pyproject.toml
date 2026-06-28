@@ -38,9 +38,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/DitherZ/IPVanish-Client-v2"
-Issues = "https://github.com/DitherZ/IPVanish-Client-v2/issues"
-Source = "https://github.com/DitherZ/IPVanish-Client-v2"
+Homepage = "https://github.com/DitherZ/ipvanish-client"
+Issues = "https://github.com/DitherZ/ipvanish-client/issues"
+Source = "https://github.com/DitherZ/ipvanish-client"
 
 [project.scripts]
 ipvanish = "ipvanish:main"
