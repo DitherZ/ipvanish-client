@@ -1,0 +1,32 @@
+# IPVanish Official Color Palette
+# Source: IPVanish Press Kit
+
+[IPVanish Green]
+CMYK:  61, 2, 100, 0
+RGB:   112, 187, 67
+HEX:   #70bb43
+
+[IPVanish Black]
+CMYK:  0, 0, 0, 100
+RGB:   0, 0, 0
+HEX:   #000000
+
+[Light Gray]
+CMYK:  5, 3, 3, 3
+RGB:   238, 239, 239
+HEX:   #EFEFEF
+
+[Medium Gray]
+CMYK:  38, 58, 56, 38
+RGB:   71, 75, 77
+HEX:   #474B4D
+
+[Dark Gray]
+CMYK:  69, 63, 62, 58
+RGB:   51, 51, 51
+HEX:   #333333
+
+# Notes:
+# - SVGs with _dbg suffix = dark background variants (white + green paths)
+# - SVGs with _wbg suffix = white background variants (black + green paths)
+# - Use _dbg variants for all dark-themed UI elements

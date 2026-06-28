@@ -1,0 +1,15 @@
+[Unit]
+Description=IPVanish Widget Stats Daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/blackflame/.local/bin/ipvanish_widget_daemon.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IPVanish Client
+GenericName=VPN Client
+Comment=Unofficial IPVanish Linux GUI client
+Exec=/usr/local/bin/ipvanish
+Icon=ipvanish
+Terminal=false
+Categories=Network;Security;
+Keywords=VPN;IPVanish;OpenVPN;WireGuard;Privacy;Security;
+StartupNotify=true
+StartupWMClass=IPVanish Client

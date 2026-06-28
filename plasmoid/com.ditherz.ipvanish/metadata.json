@@ -1,0 +1,20 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "anonzar1@gmail.com",
+                "Name": "DitherZ"
+            }
+        ],
+        "Category": "Network",
+        "Description": "Live IPVanish VPN status: public IP, server location, speed bars",
+        "Icon": "network-vpn",
+        "Id": "com.ditherz.ipvanish",
+        "License": "GPLv3",
+        "Name": "IPVanish Status",
+        "Version": "1.0.0",
+        "Website": "https://github.com/DitherZ"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

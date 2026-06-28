@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+"""
+ipvanish
+Main entry point for IPVanish-Client v2.
+Author: DitherZ
+
+Single-instance guard: uses QLockFile on a known path.
+If a second instance starts it raises the existing window and exits cleanly.
+"""
+
+import sys
+from pathlib import Path
+
+from PyQt6.QtCore import QLockFile, QStandardPaths
+from PyQt6.QtWidgets import QApplication, QMessageBox
+from PyQt6.QtGui import QFontDatabase, QFont
+
+from ui.main_window import MainWindow
+
+QSS_PATH  = Path(__file__).parent / "ui" / "theme.qss"
+LOCK_NAME = "ipvanish-client.lock"
+
+_FONT_PREFERENCE = [
+    "Vialog LT W04",
+    "Vialog",
+]
+
+
+# ──── FONT RESOLUTION ──── #
+
+def _resolve_font() -> QFont:
+    """
+    Try each preferred family in order; fall back to the system UI font.
+    Vialog LT W04 is IPVanish's brand font — used if installed locally,
+    no bundling required.
+    """
+    available = QFontDatabase.families()
+    for family in _FONT_PREFERENCE:
+        if family in available:
+            return QFont(family)
+    return QFontDatabase.systemFont(QFontDatabase.SystemFont.GeneralFont)
+
+
+# ──── SINGLE-INSTANCE LOCK ──── #
+
+def _lock_path() -> str:
+    """
+    Return a per-user runtime lock file path.
+    Prefers XDG_RUNTIME_DIR (/run/user/<uid>) for the cleanest cleanup;
+    falls back to the system temp directory.
+    """
+    runtime = QStandardPaths.writableLocation(
+        QStandardPaths.StandardLocation.RuntimeLocation
+    )
+    if not runtime:
+        runtime = QStandardPaths.writableLocation(
+            QStandardPaths.StandardLocation.TempLocation
+        )
+    return str(Path(runtime) / LOCK_NAME)
+
+
+def main():
+    app = QApplication(sys.argv)
+    app.setApplicationName("IPVanish Client")
+    app.setApplicationVersion("2.0.0")
+    # Prevent Qt from quitting when the main window is hidden to tray
+    app.setQuitOnLastWindowClosed(False)
+
+    # ── Single-instance guard ──────────────────────────────────────
+    lock = QLockFile(_lock_path())
+    lock.setStaleLockTime(0)   # never treat old locks as stale automatically
+
+    if not lock.tryLock(100):  # 100 ms timeout
+        # Another instance is already running — notify and exit
+        pid, hostname, appname = lock.getLockInfo()
+        msg = QMessageBox()
+        msg.setWindowTitle("Already Running")
+        msg.setIcon(QMessageBox.Icon.Information)
+        msg.setText(
+            "IPVanish Client is already running.\n\n"
+            "Check your system tray to restore the window."
+        )
+        msg.exec()
+        sys.exit(0)
+    # ──────────────────────────────────────────────────────────────
+
+    font = _resolve_font()
+    font.setPointSize(10)
+    app.setFont(font)
+
+    if QSS_PATH.exists():
+        app.setStyleSheet(QSS_PATH.read_text())
+
+    window = MainWindow()
+    window.show()
+
+    exit_code = app.exec()
+
+    # Release lock cleanly on normal exit
+    lock.unlock()
+    sys.exit(exit_code)
+
+
+if __name__ == "__main__":
+    main()

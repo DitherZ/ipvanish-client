@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ipvanish-client"
+version = "2.0.0"
+description = "IPVanish Linux GUI Client — PyQt6 Edition"
+readme = { file = "README.md", content-type = "text/markdown" }
+
+authors = [
+    { name = "Blackflame" }
+]
+
+license = { text = "MIT" }
+
+requires-python = ">=3.11"
+
+dependencies = [
+    "PyQt6>=6.6.0",
+    "PyQt6-Qt6>=6.6.0",
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Environment :: X11 Applications :: Qt",
+    "Topic :: Internet",
+    "Topic :: Security",
+    "Topic :: System :: Networking",
+    "Intended Audience :: End Users/Desktop",
+    "Development Status :: 4 - Beta",
+]
+
+[project.urls]
+Homepage = "https://github.com/DitherZ/IPVanish-Client-v2"
+Issues = "https://github.com/DitherZ/IPVanish-Client-v2/issues"
+Source = "https://github.com/DitherZ/IPVanish-Client-v2"
+
+[project.scripts]
+ipvanish = "ipvanish:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black",
+    "isort",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "ui*"]
+
+[tool.setuptools.package-data]
+"" = [
+    "ui/*.qss",
+    "ui/themes/*.qss",
+    "assets/SVG/*.svg",
+    "assets/PNG/*.png",
+    "assets/color-palette.txt",
+    "config/*.crt",
+]

@@ -1,0 +1,106 @@
+# ──── Python ──── #
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+.installed.cfg
+MANIFEST
+
+# ──── Virtual environments ──── #
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ──── IPVanish runtime / sensitive data ──── #
+# Credentials file — NEVER commit this
+config/credentials
+
+# Generated active connection config
+config/conn.ovpn
+
+# All downloaded .ovpn server profiles (~3,300 files)
+config/*.ovpn
+config/ipvanish/
+
+# PID file written while OpenVPN is running
+pid
+
+# Favourites are user-local, not project state
+# (uncomment to also ignore them)
+# .config/ipvanish-client/
+
+# ──── Logs ──── #
+*.log
+logs/
+.log/
+~/.log/
+
+# ──── IDE / Editor ──── #
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.project
+.pydevproject
+*.sublime-project
+*.sublime-workspace
+
+# ──── Qt / PyQt ──── #
+*.qmlc
+*.jsc
+ui/__pycache__/
+
+# ──── Testing ──── #
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# ──── Distribution ──── #
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# ──── Session / handoff docs ──── #
+.handoff/
+
+# ──── Local tool settings ──── #
+.claude/
+
+# ──── Internal planning docs ──── #
+docs/superpowers/
+
+# ──── Config runtime artifacts ──── #
+config/configs.zip
+config/guideCRT.txt
+
+# ──── Misc ──── #
+.cache/
+*.bak
+*.orig
+*.tmp
